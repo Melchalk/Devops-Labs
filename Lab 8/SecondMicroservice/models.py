@@ -3,7 +3,7 @@ from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import Column, Integer, String, create_engine, DateTime
 from pydantic import BaseModel
 
-DB_CONNECTION = "postgresql+psycopg2://postgres@postgres:5432/postgres"
+DB_CONNECTION = "postgresql+psycopg2://postgres@dbhost:5432/devops8"
 engine = create_engine(DB_CONNECTION, echo=False)
 
 class Base(DeclarativeBase): pass
