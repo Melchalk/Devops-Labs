@@ -1,6 +1,6 @@
 from datetime import datetime
 from sqlalchemy.orm import DeclarativeBase
-from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy import Column, Integer, String, create_engine, DateTime
 from pydantic import BaseModel
 
 DB_CONNECTION = "postgresql+psycopg2://postgres@postgres:5432/postgres"
@@ -18,5 +18,6 @@ class DbUser(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name  = Column(String, unique=False)
     age = Column(Integer, unique=False)
+    created_at = Column(DateTime(timezone=True))
 
 Base.metadata.create_all(bind=engine)
